@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spatium Cogitationis — Spaco</title>
+  <link rel="stylesheet" href="style.css?v=1">
+  <script src="data.js?v=1"></script>
+</head>
+<body>
+
+  <!-- MINIMALIST NAVIGATION SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <div class="brand-header">
+        <a href="#home" class="logo" id="brand-name">Spaco</a>
+        <span class="logo-subtitle" id="brand-subtitle">Spatium Cogitationis</span>
+      </div>
+      <nav id="main-nav">
+        <a href="#essays" data-page="essays">Essays</a>
+        <a href="#videos" data-page="videos">Videos</a>
+        <a href="#art" data-page="art">Art</a>
+        <a href="#about" data-page="about">About</a>
+        <a href="#contact" data-page="contact">Contact</a>
+      </nav>
+      <button id="site-theme-toggle" class="theme-toggle-btn" onclick="toggleSiteTheme()">
+        🌙 Dark Mode
+      </button>
+    </div>
+    <div class="sidebar-footer">
+      <p>A philosophy workbench.</p>
+      <p style="margin-top: 4px; color: var(--color-accent);" id="footer-author">© 2026</p>
+    </div>
+  </aside>
+
+  <!-- MAIN APPLICATION SHELL -->
+  <main>
+
+    <!-- 1. HOME VIEW -->
+    <section id="page-home" class="page-view active-view">
+      <section class="hero">
+        <span class="eyebrow">Philosophy · Essays · Visual Art</span>
+        <h1 id="hero-title">Spatium Cogitationis</h1>
+        <p class="tagline">A space of thought.</p>
+        <p class="intro" id="hero-intro"></p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#essays" class="button">Explore Works →</a>
+          <a href="#about" class="button button-secondary">About Spaco</a>
+        </div>
+      </section>
+
+      <!-- SOCRATIC QUESTION WIDGET -->
+      <div class="socratic-card">
+        <div class="socratic-header">
+          <span class="eyebrow" id="prompt-topic" style="margin: 0;">Epistemology</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Socratic Prompt</span>
+        </div>
+        <div class="socratic-prompt" id="prompt-content"></div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <button onclick="rotatePrompt()" class="button button-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Next ↻</button>
+          <button onclick="reflectOnPrompt()" class="button" style="padding: 8px 16px; font-size: 0.85rem;">Reflect →</button>
+        </div>
+      </div>
+
+      <!-- EDITORIAL GRID -->
+      <section>
+        <div class="section-title">
+          <span>Featured & Recent Works</span>
+          <span style="font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">VOL. 01</span>
+        </div>
+        <div class="editorial-grid">
+          <article class="card-featured" id="featured-essay-card"></article>
+          <div class="stacked-entries" id="home-stacked-entries"></div>
+        </div>
+      </section>
+    </section>
+
+    <!-- 2. ESSAYS VIEW -->
+    <section id="page-essays" class="page-view">
+      <div class="section-title">
+        <span>Essays</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Written Inquiries</span>
+      </div>
+      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.05rem;">Explorations of philosophy, phenomenology, and aesthetics.</p>
+
+      <div class="filter-bar">
+        <input type="text" id="essay-search" class="search-input" placeholder="Search essays or concepts..." oninput="filterEssays()">
+        <div id="filter-pills-container" style="display:inline-flex; gap:8px;"></div>
+      </div>
+
+      <div class="cards-grid" id="essays-grid"></div>
+    </section>
+
+    <!-- 3. VIDEOS VIEW -->
+    <section id="page-videos" class="page-view">
+      <div class="section-title">
+        <span>Videos</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Visual Essays & Reels</span>
+      </div>
+      <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 1.05rem;">Video essays exploring primary texts and philosophy student life.</p>
+
+      <div id="featured-video-container" style="max-width: 760px; margin-bottom: 40px;"></div>
+      <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--color-dark);">Short Reels & Vlogs</h3>
+      <div class="cards-grid" id="secondary-videos-grid"></div>
+    </section>
+
+    <!-- 4. ART VIEW -->
+    <section id="page-art" class="page-view">
+      <div class="section-title">
+        <span>Art Gallery</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Visual Works</span>
+      </div>
+      <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 1.05rem;">Tactile artwork, notebook studies, and conceptual illustrations.</p>
+
+      <div class="gallery-grid" id="art-gallery-grid"></div>
+    </section>
+
+    <!-- 5. ABOUT VIEW -->
+    <section id="page-about" class="page-view">
+      <article class="prose">
+        <div class="section-title">
+          <span>About Spaco</span>
+        </div>
+        <p class="prose-dropcap">
+          Spatium Cogitationis, "space of thought," is a minimalist editorial platform for exploring primary philosophy through writing, video, and visual art.
+        </p>
+        <div class="pull-quote">
+          "Philosophy is not the accumulation of absolute dogma, but the practice of slow, disciplined attention to existence."
+        </div>
+        <h2 style="font-size: 1.4rem; color: var(--color-dark); margin-top: 36px;">Who's behind it</h2>
+        <p id="about-bio-text"></p>
+      </article>
+    </section>
+
+    <!-- 6. CONTACT VIEW -->
+    <section id="page-contact" class="page-view">
+      <article class="prose">
+        <div class="section-title">
+          <span>Contact & Reflections</span>
+        </div>
+        <p>Questions, collaborations, or thoughts on an essay? Reach out through any of the channels below.</p>
+        <ul class="contact-list" id="contact-social-list"></ul>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="essay-modal" class="modal-overlay" onclick="closeOnBackdrop(event, 'essay-modal')">
+    <div class="modal-container theme-clean-white" id="reader-container">
+      <button class="modal-close" onclick="closeModal('essay-modal')">✕</button>
+      <div class="reader-toolbar">
+        <button class="button button-secondary" id="bookmark-btn" style="padding: 4px 12px; font-size: 0.8rem;" onclick="toggleBookmark()">🔖 Bookmark</button>
+      </div>
+      <div class="prose" id="essay-modal-content"></div>
+      <div class="marginalia-box">
+        <h4 style="margin: 0; font-size: 0.95rem; color: var(--color-dark);">Reader's Notes</h4>
+        <textarea id="marginalia-input" placeholder="Record your thoughts or objections..."></textarea>
+        <button class="button" style="margin-top:12px; padding: 6px 16px; font-size: 0.8rem;" onclick="saveMarginalia()">Save Note</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="art-modal" class="modal-overlay" onclick="closeOnBackdrop(event, 'art-modal')">
+    <div class="modal-container" style="max-width: 640px; padding: 36px;">
+      <button class="modal-close" onclick="closeModal('art-modal')">✕</button>
+      <div id="art-modal-content"></div>
+    </div>
+  </div>
+
+  <div class="notebook-badge" onclick="openNotebookModal()">
+    <span>📒 Notebook</span>
+    <span id="notebook-count" style="background:var(--color-accent); color:var(--color-dark); padding:2px 6px; border-radius:10px; font-size:0.75rem; font-weight:bold;">0</span>
+  </div>
+
+  <div id="toast" class="toast">Action completed</div>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    let activeEssayKey = null;
+    let currentPromptIdx = 0;
+
+    function initSite() {
+      if (typeof SITE_DATA === 'undefined') return;
+
+      document.getElementById('brand-name').innerText = SITE_DATA.profile.brandName;
+      document.getElementById('brand-subtitle').innerText = SITE_DATA.profile.subtitle;
+      document.getElementById('footer-author').innerText = `© 2026 ${SITE_DATA.profile.authorName}`;
+      document.getElementById('hero-intro').innerText = `${SITE_DATA.profile.brandName} is an editorial space created by ${SITE_DATA.profile.authorName} for exploring primary philosophy.`;
+      document.getElementById('about-bio-text').innerText = SITE_DATA.profile.authorBio;
+
+      document.getElementById('contact-social-list').innerHTML = `
+        <li>Email: <a href="mailto:${SITE_DATA.profile.email}">${SITE_DATA.profile.email}</a></li>
+        <li>YouTube: <a href="${SITE_DATA.profile.youtube}" target="_blank">YouTube Channel</a></li>
+        <li>Instagram: <a href="${SITE_DATA.profile.instagram}" target="_blank">Instagram Profile</a></li>
+      `;
+
+      renderPrompts();
+      renderHome();
+      renderEssays();
+      renderVideos();
+      renderArt();
+      handleRoute();
+      initSiteTheme();
+    }
+
+    function renderPrompts() {
+      if (!SITE_DATA.prompts || !SITE_DATA.prompts.length) return;
+      const p = SITE_DATA.prompts[currentPromptIdx];
+      document.getElementById('prompt-topic').innerText = p.topic;
+      document.getElementById('prompt-content').innerText = p.text;
+    }
+
+    function rotatePrompt() {
+      currentPromptIdx = (currentPromptIdx + 1) % SITE_DATA.prompts.length;
+      renderPrompts();
+    }
+
+    function reflectOnPrompt() { window.location.hash = '#contact'; }
+
+    function renderHome() {
+      const feat = SITE_DATA.essays.find(e => e.id === SITE_DATA.featuredId) || SITE_DATA.essays[0];
+      if (feat) {
+        document.getElementById('featured-essay-card').innerHTML = `
+          <div>
+            <span class="eyebrow">${feat.category} · Featured</span>
+            <h3 style="font-size: 1.7rem; margin: 12px 0;">${feat.title}</h3>
+            <p class="prose-dropcap">${feat.summary}</p>
+          </div>
+          <div><a onclick="openEssay('${feat.id}')" class="read-link">Read Essay (${feat.readTime}) →</a></div>
+        `;
+      }
+
+      const stacked = document.getElementById('home-stacked-entries');
+      stacked.innerHTML = '';
+      SITE_DATA.videos.slice(0, 1).forEach(v => {
+        stacked.innerHTML += `
+          <article class="card-stacked">
+            <span class="card-type">${v.category}</span>
+            <h3 style="font-size:1.15rem; margin:4px 0 8px;">${v.title}</h3>
+            <p style="font-size:0.9rem; margin-bottom:12px;">${v.description}</p>
+            <a href="#videos" class="read-link">Watch Video →</a>
+          </article>
+        `;
+      });
+      SITE_DATA.artworks.slice(0, 1).forEach(a => {
+        stacked.innerHTML += `
+          <article class="card-stacked">
+            <span class="card-type">Visual Art</span>
+            <h3 style="font-size:1.15rem; margin:4px 0 8px;">${a.title}</h3>
+            <p style="font-size:0.9rem; margin-bottom:12px;">${a.note}</p>
+            <a onclick="openArt('${a.id}')" class="read-link">View Artwork →</a>
+          </article>
+        `;
+      });
+    }
+
+    function renderEssays() {
+      const grid = document.getElementById('essays-grid');
+      grid.innerHTML = '';
+      SITE_DATA.essays.forEach(e => {
+        grid.innerHTML += `
+          <article class="card-stacked essay-card-item" data-category="${e.category}" data-title="${e.title}">
+            <span class="card-type">${e.category} · ${e.readTime}</span>
+            <h3 style="font-size:1.2rem; margin:6px 0 10px;">${e.title}</h3>
+            <p style="font-size:0.92rem; margin-bottom:14px;">${e.summary}</p>
+            <a onclick="openEssay('${e.id}')" class="read-link">Read Essay →</a>
+          </article>
+        `;
+      });
+    }
+
+    function renderVideos() {
+      const featuredVid = SITE_DATA.videos.find(v => v.embedUrl);
+      if (featuredVid) {
+        document.getElementById('featured-video-container').innerHTML = `
+          <div class="video-frame-container">
+            <div class="video-wrap">
+              <iframe src="${featuredVid.embedUrl}" title="${featuredVid.title}" allowfullscreen></iframe>
+            </div>
+            <span class="eyebrow" style="margin-top:12px;">${featuredVid.category} · ${featuredVid.duration}</span>
+            <h3 style="font-size: 1.4rem; margin: 6px 0 8px;">${featuredVid.title}</h3>
+            <p style="color: var(--text-muted); font-size:0.95rem;">${featuredVid.description}</p>
+          </div>
+        `;
+      }
+
+      const secGrid = document.getElementById('secondary-videos-grid');
+      secGrid.innerHTML = '';
+      SITE_DATA.videos.filter(v => v !== featuredVid).forEach(v => {
+        secGrid.innerHTML += `
+          <article class="card-stacked">
+            <span class="card-type">${v.category} · ${v.duration}</span>
+            <h3 style="font-size:1.15rem; margin:6px 0 8px;">${v.title}</h3>
+            <p style="font-size:0.9rem;">${v.description}</p>
+          </article>
+        `;
+      });
+    }
+
+    function renderArt() {
+      const grid = document.getElementById('art-gallery-grid');
+      grid.innerHTML = '';
+      SITE_DATA.artworks.forEach(a => {
+        grid.innerHTML += `
+          <div class="art-matting-frame" onclick="openArt('${a.id}')">
+            <div class="art-img-wrapper">
+              <img src="${a.image}" alt="${a.title}" onerror="loadFallbackSvg(this, '${a.title}', '#175266')">
+            </div>
+            <div class="art-caption">
+              <h4>${a.title}, ${a.year}</h4>
+              <p>${a.medium}</p>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function loadFallbackSvg(imgEl, titleText, bgColor) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750"><rect width="600" height="750" fill="${bgColor}"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#39BBE6" font-family="sans-serif" font-size="24" font-weight="bold">${titleText}</text></svg>`;
+      imgEl.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+
+    function handleRoute() {
+      let hash = window.location.hash.replace('#', '') || 'home';
+      document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active-view'));
+      const active = document.getElementById(`page-${hash}`);
+      if (active) active.classList.add('active-view');
+
+      document.querySelectorAll('#main-nav a').forEach(a => {
+        if (a.getAttribute('href').replace('#', '') === hash) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+    }
+
+    function openEssay(id) {
+      const essay = SITE_DATA.essays.find(e => e.id === id);
+      if (!essay) return;
+      activeEssayKey = id;
+      document.getElementById('essay-modal-content').innerHTML = essay.content;
+      document.getElementById('essay-modal').classList.add('active');
+    }
+
+    function openArt(id) {
+      const art = SITE_DATA.artworks.find(a => a.id === id);
+      if (!art) return;
+      document.getElementById('art-modal-content').innerHTML = `
+        <h3 style="font-size: 1.4rem; margin: 0 0 4px; color:var(--color-dark);">${art.title} (${art.year})</h3>
+        <p style="font-style: italic; color: var(--color-accent); margin-bottom: 12px; font-size:0.9rem;">${art.medium}</p>
+        <p style="font-size:0.95rem; line-height:1.6;">${art.note}</p>
+      `;
+      document.getElementById('art-modal').classList.add('active');
+    }
+
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+    function closeOnBackdrop(e, id) { if (e.target.classList.contains('modal-overlay')) closeModal(id); }
+
+    function initSiteTheme() {
+      const savedTheme = localStorage.getItem('spaco_site_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButtonLabel(theme);
+    }
+
+    function toggleSiteTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('spaco_site_theme', next);
+      updateThemeButtonLabel(next);
+    }
+
+    function updateThemeButtonLabel(theme) {
+      const btn = document.getElementById('site-theme-toggle');
+      if (btn) btn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('DOMContentLoaded', initSite);
+  </script>
+</body>
+</html>
