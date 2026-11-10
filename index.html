@@ -5,96 +5,103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Spaco – Spatium Cogitationis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="shell">
-<aside>
+<div class="topbar"><div class="wrap"><span id="notice"></span><span><a href="#" data-social="youtube">YouTube</a><a href="#" data-social="instagram">Instagram</a><a href="#" data-social="tiktok">TikTok</a></span></div></div>
+<header id="hd"><div class="wrap">
  <a class="brand" href="#beranda"><b>Spaco</b><span>Spatium Cogitationis</span></a>
- <nav aria-label="Navigasi utama" id="nav">
-  <a href="#beranda">Beranda</a>
-  <a href="#esai">Esai</a>
-  <a href="#video">Video</a>
-  <a href="#seni">Seni</a>
-  <a href="#tentang">Tentang</a>
-  <a href="#kontak">Kontak</a>
+ <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="nav">Menu</button>
+ <nav class="main" id="nav" aria-label="Navigasi utama">
+  <a href="#beranda">Beranda</a><a href="#esai">Esai</a><a href="#video">Video</a><a href="#seni">Seni</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a>
  </nav>
- <div class="side-foot">
-  <a href="#" data-social="youtube">YouTube</a>
-  <a href="#" data-social="instagram">Instagram</a>
-  <a href="#" data-social="tiktok">TikTok</a>
- </div>
-</aside>
+</div></header>
 
 <main>
-<figure class="cover" id="cover"></figure>
 <section class="view" id="v-beranda">
- <div class="hero"><div><h1>Ruang untuk berpikir bersama.</h1>
- <p class="lead">Spaco mengarsipkan esai, video, dan lukisan dari perjalanan belajar filsafat, supaya siapa pun bisa membaca, menonton, dan ikut menimbang.</p>
- <div class="row"><a class="btn" href="#esai">Baca esai</a><a class="btn alt" href="#video">Tonton video</a></div>
- </div></div>
- <div style="height:48px"></div>
- <div class="pillars">
-  <div><h3>Esai</h3><p>Tulisan panjang tentang pertanyaan filsafat yang masih terbuka.</p></div>
-  <div><h3>Video</h3><p>Video essay dan klip pendek yang menjelaskan satu gagasan sekali duduk.</p></div>
-  <div><h3>Seni</h3><p>Lukisan yang memikirkan ulang tema-tema yang sama lewat visual.</p></div>
+ <div class="hero"><div id="cover" style="display:contents"></div>
+  <div class="wrap"><div class="hero-card">
+   <span class="tag" id="h-eye"></span><h1 id="h-title" style="margin-top:14px"></h1><p id="h-text"></p><a class="btn" id="h-link" href="#esai"></a>
+  </div></div>
  </div>
- <div class="sec-head"><h2>Terbaru</h2><a href="#esai">Lihat arsip</a></div>
- <div class="list" id="latest"></div>
+ <div class="sec first"><div class="wrap">
+  <div class="sec-head"><h2>Esai terbaru</h2><a href="#esai">Lihat semua esai</a></div>
+  <div class="list" id="latest"></div>
+ </div></div>
+ <div class="sec alt"><div class="wrap">
+  <div class="sec-head"><h2>Perjalanan</h2></div>
+  <div class="tl" id="tl"></div>
+ </div></div>
+ <div class="sec"><div class="wrap quote">
+  <figure class="shot" id="q-pic"></figure>
+  <div><blockquote id="q-text"></blockquote><div class="who" id="q-by"></div></div>
+ </div></div>
+ <div class="sec alt"><div class="wrap">
+  <div class="sec-head"><h2>Video</h2><a href="#video">Semua video</a></div>
+  <div class="grid" id="h-videos"></div>
+ </div></div>
+ <div class="sec"><div class="wrap">
+  <div class="sec-head"><h2>Seni</h2><a href="#seni">Semua karya</a></div>
+  <div class="grid" id="h-art"></div>
+ </div></div>
 </section>
 
 <section class="view" id="v-esai">
- <h1>Esai</h1>
- <p class="lead">Arsip tulisan, diurutkan dari yang terbaru.</p>
- <div class="tools">
-  <input type="search" id="q" placeholder="Cari judul atau topik" aria-label="Cari esai">
-  <span id="chips"></span>
+ <div class="pagehead"><div class="wrap"><p class="crumb"><a href="#beranda">Beranda</a> / Esai</p><h1>Esai</h1><p class="lead">Arsip tulisan, diurutkan dari yang terbaru.</p></div></div>
+ <div class="wrap sec">
+  <div class="tools"><input type="search" id="q" placeholder="Cari judul atau topik" aria-label="Cari esai"><span id="chips"></span></div>
+  <div class="list" id="essays"></div>
  </div>
- <div class="list" id="essays"></div>
 </section>
 
 <section class="view" id="v-video">
- <h1>Video</h1>
- <p class="lead">Video essay panjang dan konten pendek. Semua tayang di YouTube, Instagram, dan TikTok.</p>
- <div class="grid" id="videos"></div>
+ <div class="pagehead"><div class="wrap"><p class="crumb"><a href="#beranda">Beranda</a> / Video</p><h1>Video</h1><p class="lead">Video essay panjang dan konten pendek di YouTube, Instagram, dan TikTok.</p></div></div>
+ <div class="wrap sec"><div class="grid" id="videos"></div></div>
 </section>
 
 <section class="view" id="v-seni">
- <h1>Seni</h1>
- <p class="lead">Lukisan dengan catatan singkat tentang gagasan di baliknya.</p>
- <div class="grid" id="art"></div>
+ <div class="pagehead"><div class="wrap"><p class="crumb"><a href="#beranda">Beranda</a> / Seni</p><h1>Seni</h1><p class="lead">Lukisan dengan catatan singkat tentang gagasan di baliknya.</p></div></div>
+ <div class="wrap sec"><div class="grid" id="art"></div></div>
 </section>
 
 <section class="view" id="v-tentang">
- <h1>Tentang Spaco</h1>
- <figure class="portrait" id="portrait"></figure>
- <p class="lead">Spatium cogitationis berarti “ruang pemikiran”.</p>
- <p>Spaco adalah platform pribadi sekaligus ruang terbuka untuk peminat filsafat. Saya mahasiswa filsafat yang rutin menulis esai, melukis, dan membuat video. Semua karya itu dikumpulkan di sini agar mudah ditemukan dan dibaca ulang.</p>
- <p>Tujuannya sederhana: membuat studi filsafat terasa dekat tanpa menghilangkan kedalamannya.</p>
- <h2 style="margin-top:36px">Yang akan Anda temukan</h2>
- <p>Esai tentang etika, eksistensialisme, dan filsafat sehari-hari; video penjelasan; serta lukisan yang berangkat dari bacaan yang sama.</p>
+ <div class="pagehead"><div class="wrap"><p class="crumb"><a href="#beranda">Beranda</a> / Tentang</p><h1>Tentang Spaco</h1><p class="lead">Spatium cogitationis berarti “ruang pemikiran”.</p></div></div>
+ <div class="wrap sec quote">
+  <figure class="shot" id="portrait"></figure>
+  <div>
+   <p>Spaco adalah platform pribadi sekaligus ruang terbuka untuk peminat filsafat. Saya mahasiswa filsafat yang rutin menulis esai, melukis, dan membuat video. Semua karya itu dikumpulkan di sini agar mudah ditemukan dan dibaca ulang.</p>
+   <p>Tujuannya sederhana: membuat studi filsafat terasa dekat tanpa menghilangkan kedalamannya.</p>
+   <h2 style="margin:32px 0 12px">Yang akan Anda temukan</h2>
+   <p>Esai tentang etika, eksistensialisme, dan filsafat sehari-hari; video penjelasan; serta lukisan yang berangkat dari bacaan yang sama.</p>
+  </div>
+ </div>
 </section>
 
 <section class="view" id="v-kontak">
- <h1>Kontak</h1>
- <p class="lead">Ikuti karya terbaru atau kirim pesan untuk diskusi dan kolaborasi.</p>
- <div class="social">
-  <a href="#" data-social="youtube"><b>YouTube</b><span class="meta">Video essay panjang</span></a>
-  <a href="#" data-social="instagram"><b>Instagram</b><span class="meta">Reels dan karya seni</span></a>
-  <a href="#" data-social="tiktok"><b>TikTok</b><span class="meta">Klip filsafat singkat</span></a>
+ <div class="pagehead"><div class="wrap"><p class="crumb"><a href="#beranda">Beranda</a> / Kontak</p><h1>Kontak</h1><p class="lead">Ikuti karya terbaru atau kirim pesan untuk diskusi dan kolaborasi.</p></div></div>
+ <div class="wrap sec">
+  <div class="social">
+   <a href="#" data-social="youtube"><b>YouTube</b><span class="meta">Video essay panjang</span></a>
+   <a href="#" data-social="instagram"><b>Instagram</b><span class="meta">Reels dan karya seni</span></a>
+   <a href="#" data-social="tiktok"><b>TikTok</b><span class="meta">Klip filsafat singkat</span></a>
+  </div>
+  <h2 style="margin-bottom:16px">Kirim pesan</h2>
+  <form id="f"><label>Nama<input name="n" required autocomplete="name"></label><label>Pesan<textarea name="m" rows="5" required></textarea></label>
+  <button class="btn" type="submit" style="justify-self:start;cursor:pointer">Buka email</button></form>
  </div>
- <h2>Kirim pesan</h2>
- <form id="f">
-  <label>Nama<input name="n" required autocomplete="name"></label>
-  <label>Pesan<textarea name="m" rows="5" required></textarea></label>
-  <button class="btn" type="submit" style="justify-self:start;cursor:pointer">Buka email</button>
- </form>
 </section>
-
-<footer>© 2026 Spaco · Spatium Cogitationis</footer>
 </main>
-</div>
+
+<footer><div class="wrap">
+ <div class="fcols">
+  <div><b>Spaco</b><span style="opacity:.75">Spatium Cogitationis<br>Platform intelektual untuk peminat filsafat.</span></div>
+  <div><h4>Jelajahi</h4><a href="#esai">Esai</a><a href="#video">Video</a><a href="#seni">Seni</a></div>
+  <div><h4>Ikuti</h4><a href="#" data-social="youtube">YouTube</a><a href="#" data-social="instagram">Instagram</a><a href="#" data-social="tiktok">TikTok</a></div>
+  <div><h4>Hubungi</h4><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a></div>
+ </div>
+ <small>© 2026 Spaco · Spatium Cogitationis</small>
+</div></footer>
 
 <script src="data.js"></script>
 <script>
@@ -105,8 +112,22 @@ var PAL=[["#2E7794","#0f3b4d"],["#6bb7d4","#2E7794"],["#cfe0e8","#7aa3b5"],["#1f
 function ph(i){var p=PAL[i%4];return "data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="'+(220+(i*97)%360)+'" cy="260" r="150" fill="#fff" fill-opacity=".12"/><circle cx="580" cy="390" r="90" fill="#fff" fill-opacity=".1"/></svg>')}
 function pic(src,alt,i){return '<img src="'+esc(src||ph(i))+'" alt="'+esc(alt)+'" loading="lazy" onerror="this.onerror=null;this.src=ph('+i+')">'}
 function essayHTML(e){return '<a class="item" href="'+esc(e.u)+'"><span class="pic">'+pic(e.foto,e.t,ESSAYS.indexOf(e))+'</span><span><span class="tag">'+esc(e.c)+'</span><span class="meta">'+fmt(e.d)+'</span><h3>'+esc(e.t)+'</h3><p>'+esc(e.x)+'</p></span></a>'}
+function videoHTML(v,i){return '<a class="card" href="'+esc(v.u)+'"><div class="thumb">'+pic(v.foto,v.t,i+2)+'</div><div class="body"><span class="tag">'+esc(v.k)+'</span><h3>'+esc(v.t)+'</h3><p>'+esc(v.x)+'</p></div></a>'}
+function artHTML(a,i){return '<div class="card"><div class="thumb sq">'+pic(a.foto,a.t,i+4)+'</div><div class="body"><h3>'+esc(a.t)+'</h3><div class="meta">'+esc(a.m)+', '+esc(a.y)+'</div><p>'+esc(a.x)+'</p></div></div>'}
 var sorted=ESSAYS.slice().sort(function(a,b){return b.d<a.d?-1:1});
+$("#notice").textContent=NOTICE;
+$("#cover").innerHTML=pic(COVER,"Sampul Spaco",0);
+$("#h-eye").textContent=HEADLINE.eyebrow;$("#h-title").textContent=HEADLINE.title;$("#h-text").textContent=HEADLINE.text;
+$("#h-link").textContent=HEADLINE.label;$("#h-link").href=HEADLINE.link;
 $("#latest").innerHTML=sorted.slice(0,3).map(essayHTML).join("");
+$("#tl").innerHTML=TIMELINE.map(function(t){return '<div><b>'+esc(t.y)+'</b><p>'+esc(t.x)+'</p></div>'}).join("");
+$("#q-pic").innerHTML=pic(PORTRAIT,"Foto penulis Spaco",1);
+$("#q-text").textContent=QUOTE.x;$("#q-by").innerHTML='<b>'+esc(QUOTE.by)+'</b>'+esc(QUOTE.role);
+$("#portrait").innerHTML=pic(PORTRAIT,"Foto penulis Spaco",1);
+$("#h-videos").innerHTML=VIDEOS.slice(0,3).map(videoHTML).join("");
+$("#h-art").innerHTML=ART.slice(0,3).map(artHTML).join("");
+$("#videos").innerHTML=VIDEOS.map(videoHTML).join("");
+$("#art").innerHTML=ART.map(artHTML).join("");
 var cats=["Semua"].concat(sorted.map(function(e){return e.c}).filter(function(v,i,a){return a.indexOf(v)===i}));
 var cat="Semua";
 $("#chips").innerHTML=cats.map(function(c,i){return '<button class="chip" aria-pressed="'+(i===0)+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join(" ");
@@ -119,19 +140,16 @@ $("#q").addEventListener("input",drawEssays);
 $("#chips").addEventListener("click",function(ev){var b=ev.target.closest("button");if(!b)return;cat=b.dataset.c;
  document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===b)});drawEssays()});
 drawEssays();
-$("#videos").innerHTML=VIDEOS.map(function(v,i){return '<a class="card" href="'+esc(v.u)+'"><div class="thumb">'+pic(v.foto,v.t,i+2)+'</div><div class="body"><span class="tag">'+esc(v.k)+'</span><h3>'+esc(v.t)+'</h3><p>'+esc(v.x)+'</p></div></a>'}).join("");
-$("#art").innerHTML=ART.map(function(a,i){return '<div class="card"><div class="thumb sq">'+pic(a.foto,a.t,i+4)+'</div><div class="body"><h3>'+esc(a.t)+'</h3><div class="meta">'+esc(a.m)+', '+esc(a.y)+'</div><p>'+esc(a.x)+'</p></div></div>'}).join("");
-$("#cover").innerHTML=pic(COVER,"Sampul Spaco",0);
-$("#portrait").innerHTML=pic(PORTRAIT,"Foto penulis Spaco",1)+'<figcaption>Penulis Spaco</figcaption>';
 document.querySelectorAll("[data-social]").forEach(function(a){a.href=SOCIAL[a.dataset.social];a.target="_blank";a.rel="noopener"});
 $("#f").addEventListener("submit",function(ev){ev.preventDefault();var f=ev.target;
  location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Pesan dari "+f.n.value)+"&body="+encodeURIComponent(f.m.value)});
+$("#mb").addEventListener("click",function(){var o=$("#hd").classList.toggle("open");this.setAttribute("aria-expanded",o)});
 var names=["beranda","esai","video","seni","tentang","kontak"];
 function route(){
  var h=location.hash.slice(1);if(names.indexOf(h)<0)h="beranda";
  names.forEach(function(n){$("#v-"+n).classList.toggle("on",n===h)});
  document.querySelectorAll("#nav a").forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
- window.scrollTo(0,0);
+ $("#hd").classList.remove("open");window.scrollTo(0,0);
 }
 window.addEventListener("hashchange",route);route();
 </script>
