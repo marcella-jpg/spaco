@@ -1,414 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spatium Cogitationis — Spaco</title>
-  <link rel="stylesheet" href="style.css?v=1">
-  <script src="data.js?v=1"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spaco – Spatium Cogitationis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="shell">
+<aside>
+ <a class="brand" href="#beranda"><b>Spaco</b><span>Spatium Cogitationis</span></a>
+ <nav aria-label="Navigasi utama" id="nav">
+  <a href="#beranda">Beranda</a>
+  <a href="#esai">Esai</a>
+  <a href="#video">Video</a>
+  <a href="#seni">Seni</a>
+  <a href="#tentang">Tentang</a>
+  <a href="#kontak">Kontak</a>
+ </nav>
+ <div class="side-foot">
+  <a href="#" data-social="youtube">YouTube</a>
+  <a href="#" data-social="instagram">Instagram</a>
+  <a href="#" data-social="tiktok">TikTok</a>
+ </div>
+</aside>
 
-  <!-- MINIMALIST NAVIGATION SIDEBAR -->
-  <aside class="sidebar">
-    <div>
-      <div class="brand-header">
-        <a href="#home" class="logo" id="brand-name">Spaco</a>
-        <span class="logo-subtitle" id="brand-subtitle">Spatium Cogitationis</span>
-      </div>
-      <nav id="main-nav">
-        <a href="#essays" data-page="essays">Essays</a>
-        <a href="#videos" data-page="videos">Videos</a>
-        <a href="#art" data-page="art">Art</a>
-        <a href="#about" data-page="about">About</a>
-        <a href="#contact" data-page="contact">Contact</a>
-      </nav>
-      <button id="site-theme-toggle" class="theme-toggle-btn" onclick="toggleSiteTheme()">
-        🌙 Dark Mode
-      </button>
-    </div>
-    <div class="sidebar-footer">
-      <p>A philosophy workbench.</p>
-      <p style="margin-top: 4px; color: var(--color-accent);" id="footer-author">© 2026</p>
-    </div>
-  </aside>
-
-  <!-- MAIN APPLICATION SHELL -->
-  <main>
-
-    <!-- 1. HOME VIEW -->
-    <!-- 1. HOME VIEW (DENGAN HERO PHOTO BACKDROP) -->
-<section id="page-home" class="page-view active-view">
-  
-  <section class="hero-photo-banner">
-    <div class="hero-content">
-      <span class="eyebrow">Philosophy · Essays · Visual Art</span>
-      <h1 id="hero-title">Spatium Cogitationis</h1>
-      <p class="tagline">A space of thought.</p>
-      <p class="intro" id="hero-intro"></p>
-      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <a href="#essays" class="button">Explore Works →</a>
-        <a href="#about" class="button button-secondary">About Spaco</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCRATIC QUESTION WIDGET -->
-  <div class="socratic-card">
-    <div class="socratic-header">
-      <span class="eyebrow" id="prompt-topic" style="margin: 0;">Epistemology</span>
-      <span style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Socratic Prompt</span>
-    </div>
-    <div class="socratic-prompt" id="prompt-content"></div>
-    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-      <button onclick="rotatePrompt()" class="button button-secondary" style="padding: 8px 16px; font-size: 0.85rem; color:var(--text-main);">Next ↻</button>
-      <button onclick="reflectOnPrompt()" class="button" style="padding: 8px 16px; font-size: 0.85rem;">Reflect →</button>
-    </div>
-  </div>
-
-  <!-- EDITORIAL GRID -->
-  <section>
-    <div class="section-title">
-      <span>Featured & Recent Works</span>
-      <span style="font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">VOL. 01</span>
-    </div>
-    <div class="editorial-grid">
-      <article class="card-featured" id="featured-essay-card"></article>
-      <div class="stacked-entries" id="home-stacked-entries"></div>
-    </div>
-  </section>
-
+<main>
+<figure class="cover" id="cover"></figure>
+<section class="view" id="v-beranda">
+ <div class="hero"><div><h1>Ruang untuk berpikir bersama.</h1>
+ <p class="lead">Spaco mengarsipkan esai, video, dan lukisan dari perjalanan belajar filsafat, supaya siapa pun bisa membaca, menonton, dan ikut menimbang.</p>
+ <div class="row"><a class="btn" href="#esai">Baca esai</a><a class="btn alt" href="#video">Tonton video</a></div>
+ </div></div>
+ <div style="height:48px"></div>
+ <div class="pillars">
+  <div><h3>Esai</h3><p>Tulisan panjang tentang pertanyaan filsafat yang masih terbuka.</p></div>
+  <div><h3>Video</h3><p>Video essay dan klip pendek yang menjelaskan satu gagasan sekali duduk.</p></div>
+  <div><h3>Seni</h3><p>Lukisan yang memikirkan ulang tema-tema yang sama lewat visual.</p></div>
+ </div>
+ <div class="sec-head"><h2>Terbaru</h2><a href="#esai">Lihat arsip</a></div>
+ <div class="list" id="latest"></div>
 </section>
 
-      <!-- SOCRATIC QUESTION WIDGET -->
-      <div class="socratic-card">
-        <div class="socratic-header">
-          <span class="eyebrow" id="prompt-topic" style="margin: 0;">Epistemology</span>
-          <span style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Socratic Prompt</span>
-        </div>
-        <div class="socratic-prompt" id="prompt-content"></div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <button onclick="rotatePrompt()" class="button button-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Next ↻</button>
-          <button onclick="reflectOnPrompt()" class="button" style="padding: 8px 16px; font-size: 0.85rem;">Reflect →</button>
-        </div>
-      </div>
+<section class="view" id="v-esai">
+ <h1>Esai</h1>
+ <p class="lead">Arsip tulisan, diurutkan dari yang terbaru.</p>
+ <div class="tools">
+  <input type="search" id="q" placeholder="Cari judul atau topik" aria-label="Cari esai">
+  <span id="chips"></span>
+ </div>
+ <div class="list" id="essays"></div>
+</section>
 
-      <!-- EDITORIAL GRID -->
-      <section>
-        <div class="section-title">
-          <span>Featured & Recent Works</span>
-          <span style="font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">VOL. 01</span>
-        </div>
-        <div class="editorial-grid">
-          <article class="card-featured" id="featured-essay-card"></article>
-          <div class="stacked-entries" id="home-stacked-entries"></div>
-        </div>
-      </section>
-    </section>
+<section class="view" id="v-video">
+ <h1>Video</h1>
+ <p class="lead">Video essay panjang dan konten pendek. Semua tayang di YouTube, Instagram, dan TikTok.</p>
+ <div class="grid" id="videos"></div>
+</section>
 
-    <!-- 2. ESSAYS VIEW -->
-    <section id="page-essays" class="page-view">
-      <div class="section-title">
-        <span>Essays</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">Written Inquiries</span>
-      </div>
-      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 1.05rem;">Explorations of philosophy, phenomenology, and aesthetics.</p>
+<section class="view" id="v-seni">
+ <h1>Seni</h1>
+ <p class="lead">Lukisan dengan catatan singkat tentang gagasan di baliknya.</p>
+ <div class="grid" id="art"></div>
+</section>
 
-      <div class="filter-bar">
-        <input type="text" id="essay-search" class="search-input" placeholder="Search essays or concepts..." oninput="filterEssays()">
-        <div id="filter-pills-container" style="display:inline-flex; gap:8px;"></div>
-      </div>
+<section class="view" id="v-tentang">
+ <h1>Tentang Spaco</h1>
+ <figure class="portrait" id="portrait"></figure>
+ <p class="lead">Spatium cogitationis berarti “ruang pemikiran”.</p>
+ <p>Spaco adalah platform pribadi sekaligus ruang terbuka untuk peminat filsafat. Saya mahasiswa filsafat yang rutin menulis esai, melukis, dan membuat video. Semua karya itu dikumpulkan di sini agar mudah ditemukan dan dibaca ulang.</p>
+ <p>Tujuannya sederhana: membuat studi filsafat terasa dekat tanpa menghilangkan kedalamannya.</p>
+ <h2 style="margin-top:36px">Yang akan Anda temukan</h2>
+ <p>Esai tentang etika, eksistensialisme, dan filsafat sehari-hari; video penjelasan; serta lukisan yang berangkat dari bacaan yang sama.</p>
+</section>
 
-      <div class="cards-grid" id="essays-grid"></div>
-    </section>
+<section class="view" id="v-kontak">
+ <h1>Kontak</h1>
+ <p class="lead">Ikuti karya terbaru atau kirim pesan untuk diskusi dan kolaborasi.</p>
+ <div class="social">
+  <a href="#" data-social="youtube"><b>YouTube</b><span class="meta">Video essay panjang</span></a>
+  <a href="#" data-social="instagram"><b>Instagram</b><span class="meta">Reels dan karya seni</span></a>
+  <a href="#" data-social="tiktok"><b>TikTok</b><span class="meta">Klip filsafat singkat</span></a>
+ </div>
+ <h2>Kirim pesan</h2>
+ <form id="f">
+  <label>Nama<input name="n" required autocomplete="name"></label>
+  <label>Pesan<textarea name="m" rows="5" required></textarea></label>
+  <button class="btn" type="submit" style="justify-self:start;cursor:pointer">Buka email</button>
+ </form>
+</section>
 
-    <!-- 3. VIDEOS VIEW -->
-    <section id="page-videos" class="page-view">
-      <div class="section-title">
-        <span>Videos</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">Visual Essays & Reels</span>
-      </div>
-      <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 1.05rem;">Video essays exploring primary texts and philosophy student life.</p>
+<footer>© 2026 Spaco · Spatium Cogitationis</footer>
+</main>
+</div>
 
-      <div id="featured-video-container" style="max-width: 760px; margin-bottom: 40px;"></div>
-      <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--color-dark);">Short Reels & Vlogs</h3>
-      <div class="cards-grid" id="secondary-videos-grid"></div>
-    </section>
-
-    <!-- 4. ART VIEW -->
-    <section id="page-art" class="page-view">
-      <div class="section-title">
-        <span>Art Gallery</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">Visual Works</span>
-      </div>
-      <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 1.05rem;">Tactile artwork, notebook studies, and conceptual illustrations.</p>
-
-      <div class="gallery-grid" id="art-gallery-grid"></div>
-    </section>
-
-    <!-- 5. ABOUT VIEW -->
-    <section id="page-about" class="page-view">
-      <article class="prose">
-        <div class="section-title">
-          <span>About Spaco</span>
-        </div>
-        <p class="prose-dropcap">
-          Spatium Cogitationis, "space of thought," is a minimalist editorial platform for exploring primary philosophy through writing, video, and visual art.
-        </p>
-        <div class="pull-quote">
-          "Philosophy is not the accumulation of absolute dogma, but the practice of slow, disciplined attention to existence."
-        </div>
-        <h2 style="font-size: 1.4rem; color: var(--color-dark); margin-top: 36px;">Who's behind it</h2>
-        <p id="about-bio-text"></p>
-      </article>
-    </section>
-
-    <!-- 6. CONTACT VIEW -->
-    <section id="page-contact" class="page-view">
-      <article class="prose">
-        <div class="section-title">
-          <span>Contact & Reflections</span>
-        </div>
-        <p>Questions, collaborations, or thoughts on an essay? Reach out through any of the channels below.</p>
-        <ul class="contact-list" id="contact-social-list"></ul>
-      </article>
-    </section>
-
-  </main>
-
-  <!-- MODALS -->
-  <div id="essay-modal" class="modal-overlay" onclick="closeOnBackdrop(event, 'essay-modal')">
-    <div class="modal-container theme-clean-white" id="reader-container">
-      <button class="modal-close" onclick="closeModal('essay-modal')">✕</button>
-      <div class="reader-toolbar">
-        <button class="button button-secondary" id="bookmark-btn" style="padding: 4px 12px; font-size: 0.8rem;" onclick="toggleBookmark()">🔖 Bookmark</button>
-      </div>
-      <div class="prose" id="essay-modal-content"></div>
-      <div class="marginalia-box">
-        <h4 style="margin: 0; font-size: 0.95rem; color: var(--color-dark);">Reader's Notes</h4>
-        <textarea id="marginalia-input" placeholder="Record your thoughts or objections..."></textarea>
-        <button class="button" style="margin-top:12px; padding: 6px 16px; font-size: 0.8rem;" onclick="saveMarginalia()">Save Note</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="art-modal" class="modal-overlay" onclick="closeOnBackdrop(event, 'art-modal')">
-    <div class="modal-container" style="max-width: 640px; padding: 36px;">
-      <button class="modal-close" onclick="closeModal('art-modal')">✕</button>
-      <div id="art-modal-content"></div>
-    </div>
-  </div>
-
-  <div class="notebook-badge" onclick="openNotebookModal()">
-    <span>📒 Notebook</span>
-    <span id="notebook-count" style="background:var(--color-accent); color:var(--color-dark); padding:2px 6px; border-radius:10px; font-size:0.75rem; font-weight:bold;">0</span>
-  </div>
-
-  <div id="toast" class="toast">Action completed</div>
-
-  <!-- APPLICATION LOGIC -->
-  <script>
-    let activeEssayKey = null;
-    let currentPromptIdx = 0;
-
-    function initSite() {
-      if (typeof SITE_DATA === 'undefined') return;
-
-      document.getElementById('brand-name').innerText = SITE_DATA.profile.brandName;
-      document.getElementById('brand-subtitle').innerText = SITE_DATA.profile.subtitle;
-      document.getElementById('footer-author').innerText = `© 2026 ${SITE_DATA.profile.authorName}`;
-      document.getElementById('hero-intro').innerText = `${SITE_DATA.profile.brandName} is an editorial space created by ${SITE_DATA.profile.authorName} for exploring primary philosophy.`;
-      document.getElementById('about-bio-text').innerText = SITE_DATA.profile.authorBio;
-
-      document.getElementById('contact-social-list').innerHTML = `
-        <li>Email: <a href="mailto:${SITE_DATA.profile.email}">${SITE_DATA.profile.email}</a></li>
-        <li>YouTube: <a href="${SITE_DATA.profile.youtube}" target="_blank">YouTube Channel</a></li>
-        <li>Instagram: <a href="${SITE_DATA.profile.instagram}" target="_blank">Instagram Profile</a></li>
-      `;
-
-      renderPrompts();
-      renderHome();
-      renderEssays();
-      renderVideos();
-      renderArt();
-      handleRoute();
-      initSiteTheme();
-    }
-
-    function renderPrompts() {
-      if (!SITE_DATA.prompts || !SITE_DATA.prompts.length) return;
-      const p = SITE_DATA.prompts[currentPromptIdx];
-      document.getElementById('prompt-topic').innerText = p.topic;
-      document.getElementById('prompt-content').innerText = p.text;
-    }
-
-    function rotatePrompt() {
-      currentPromptIdx = (currentPromptIdx + 1) % SITE_DATA.prompts.length;
-      renderPrompts();
-    }
-
-    function reflectOnPrompt() { window.location.hash = '#contact'; }
-
-    function renderHome() {
-      const feat = SITE_DATA.essays.find(e => e.id === SITE_DATA.featuredId) || SITE_DATA.essays[0];
-      if (feat) {
-        document.getElementById('featured-essay-card').innerHTML = `
-          <div>
-            <span class="eyebrow">${feat.category} · Featured</span>
-            <h3 style="font-size: 1.7rem; margin: 12px 0;">${feat.title}</h3>
-            <p class="prose-dropcap">${feat.summary}</p>
-          </div>
-          <div><a onclick="openEssay('${feat.id}')" class="read-link">Read Essay (${feat.readTime}) →</a></div>
-        `;
-      }
-
-      const stacked = document.getElementById('home-stacked-entries');
-      stacked.innerHTML = '';
-      SITE_DATA.videos.slice(0, 1).forEach(v => {
-        stacked.innerHTML += `
-          <article class="card-stacked">
-            <span class="card-type">${v.category}</span>
-            <h3 style="font-size:1.15rem; margin:4px 0 8px;">${v.title}</h3>
-            <p style="font-size:0.9rem; margin-bottom:12px;">${v.description}</p>
-            <a href="#videos" class="read-link">Watch Video →</a>
-          </article>
-        `;
-      });
-      SITE_DATA.artworks.slice(0, 1).forEach(a => {
-        stacked.innerHTML += `
-          <article class="card-stacked">
-            <span class="card-type">Visual Art</span>
-            <h3 style="font-size:1.15rem; margin:4px 0 8px;">${a.title}</h3>
-            <p style="font-size:0.9rem; margin-bottom:12px;">${a.note}</p>
-            <a onclick="openArt('${a.id}')" class="read-link">View Artwork →</a>
-          </article>
-        `;
-      });
-    }
-
-    function renderEssays() {
-      const grid = document.getElementById('essays-grid');
-      grid.innerHTML = '';
-      SITE_DATA.essays.forEach(e => {
-        grid.innerHTML += `
-          <article class="card-stacked essay-card-item" data-category="${e.category}" data-title="${e.title}">
-            <span class="card-type">${e.category} · ${e.readTime}</span>
-            <h3 style="font-size:1.2rem; margin:6px 0 10px;">${e.title}</h3>
-            <p style="font-size:0.92rem; margin-bottom:14px;">${e.summary}</p>
-            <a onclick="openEssay('${e.id}')" class="read-link">Read Essay →</a>
-          </article>
-        `;
-      });
-    }
-
-    function renderVideos() {
-      const featuredVid = SITE_DATA.videos.find(v => v.embedUrl);
-      if (featuredVid) {
-        document.getElementById('featured-video-container').innerHTML = `
-          <div class="video-frame-container">
-            <div class="video-wrap">
-              <iframe src="${featuredVid.embedUrl}" title="${featuredVid.title}" allowfullscreen></iframe>
-            </div>
-            <span class="eyebrow" style="margin-top:12px;">${featuredVid.category} · ${featuredVid.duration}</span>
-            <h3 style="font-size: 1.4rem; margin: 6px 0 8px;">${featuredVid.title}</h3>
-            <p style="color: var(--text-muted); font-size:0.95rem;">${featuredVid.description}</p>
-          </div>
-        `;
-      }
-
-      const secGrid = document.getElementById('secondary-videos-grid');
-      secGrid.innerHTML = '';
-      SITE_DATA.videos.filter(v => v !== featuredVid).forEach(v => {
-        secGrid.innerHTML += `
-          <article class="card-stacked">
-            <span class="card-type">${v.category} · ${v.duration}</span>
-            <h3 style="font-size:1.15rem; margin:6px 0 8px;">${v.title}</h3>
-            <p style="font-size:0.9rem;">${v.description}</p>
-          </article>
-        `;
-      });
-    }
-
-    function renderArt() {
-      const grid = document.getElementById('art-gallery-grid');
-      grid.innerHTML = '';
-      SITE_DATA.artworks.forEach(a => {
-        grid.innerHTML += `
-          <div class="art-matting-frame" onclick="openArt('${a.id}')">
-            <div class="art-img-wrapper">
-              <img src="${a.image}" alt="${a.title}" onerror="loadFallbackSvg(this, '${a.title}', '#175266')">
-            </div>
-            <div class="art-caption">
-              <h4>${a.title}, ${a.year}</h4>
-              <p>${a.medium}</p>
-            </div>
-          </div>
-        `;
-      });
-    }
-
-    function loadFallbackSvg(imgEl, titleText, bgColor) {
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750"><rect width="600" height="750" fill="${bgColor}"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#39BBE6" font-family="sans-serif" font-size="24" font-weight="bold">${titleText}</text></svg>`;
-      imgEl.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-    }
-
-    function handleRoute() {
-      let hash = window.location.hash.replace('#', '') || 'home';
-      document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active-view'));
-      const active = document.getElementById(`page-${hash}`);
-      if (active) active.classList.add('active-view');
-
-      document.querySelectorAll('#main-nav a').forEach(a => {
-        if (a.getAttribute('href').replace('#', '') === hash) a.setAttribute('aria-current', 'page');
-        else a.removeAttribute('aria-current');
-      });
-    }
-
-    function openEssay(id) {
-      const essay = SITE_DATA.essays.find(e => e.id === id);
-      if (!essay) return;
-      activeEssayKey = id;
-      document.getElementById('essay-modal-content').innerHTML = essay.content;
-      document.getElementById('essay-modal').classList.add('active');
-    }
-
-    function openArt(id) {
-      const art = SITE_DATA.artworks.find(a => a.id === id);
-      if (!art) return;
-      document.getElementById('art-modal-content').innerHTML = `
-        <h3 style="font-size: 1.4rem; margin: 0 0 4px; color:var(--color-dark);">${art.title} (${art.year})</h3>
-        <p style="font-style: italic; color: var(--color-accent); margin-bottom: 12px; font-size:0.9rem;">${art.medium}</p>
-        <p style="font-size:0.95rem; line-height:1.6;">${art.note}</p>
-      `;
-      document.getElementById('art-modal').classList.add('active');
-    }
-
-    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-    function closeOnBackdrop(e, id) { if (e.target.classList.contains('modal-overlay')) closeModal(id); }
-
-    function initSiteTheme() {
-      const savedTheme = localStorage.getItem('spaco_site_theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-      updateThemeButtonLabel(theme);
-    }
-
-    function toggleSiteTheme() {
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('spaco_site_theme', next);
-      updateThemeButtonLabel(next);
-    }
-
-    function updateThemeButtonLabel(theme) {
-      const btn = document.getElementById('site-theme-toggle');
-      if (btn) btn.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
-    }
-
-    window.addEventListener('hashchange', handleRoute);
-    window.addEventListener('DOMContentLoaded', initSite);
-  </script>
+<script src="data.js"></script>
+<script>
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function fmt(d){try{return new Date(d).toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"})}catch(e){return d}}
+var PAL=[["#2E7794","#0f3b4d"],["#6bb7d4","#2E7794"],["#cfe0e8","#7aa3b5"],["#1f4f63","#0b2530"]];
+function ph(i){var p=PAL[i%4];return "data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/><circle cx="'+(220+(i*97)%360)+'" cy="260" r="150" fill="#fff" fill-opacity=".12"/><circle cx="580" cy="390" r="90" fill="#fff" fill-opacity=".1"/></svg>')}
+function pic(src,alt,i){return '<img src="'+esc(src||ph(i))+'" alt="'+esc(alt)+'" loading="lazy" onerror="this.onerror=null;this.src=ph('+i+')">'}
+function essayHTML(e){return '<a class="item" href="'+esc(e.u)+'"><span class="pic">'+pic(e.foto,e.t,ESSAYS.indexOf(e))+'</span><span><span class="tag">'+esc(e.c)+'</span><span class="meta">'+fmt(e.d)+'</span><h3>'+esc(e.t)+'</h3><p>'+esc(e.x)+'</p></span></a>'}
+var sorted=ESSAYS.slice().sort(function(a,b){return b.d<a.d?-1:1});
+$("#latest").innerHTML=sorted.slice(0,3).map(essayHTML).join("");
+var cats=["Semua"].concat(sorted.map(function(e){return e.c}).filter(function(v,i,a){return a.indexOf(v)===i}));
+var cat="Semua";
+$("#chips").innerHTML=cats.map(function(c,i){return '<button class="chip" aria-pressed="'+(i===0)+'" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join(" ");
+function drawEssays(){
+ var q=$("#q").value.toLowerCase();
+ var r=sorted.filter(function(e){return(cat==="Semua"||e.c===cat)&&(e.t+e.x+e.c).toLowerCase().indexOf(q)>-1});
+ $("#essays").innerHTML=r.length?r.map(essayHTML).join(""):'<p class="empty">Tidak ada esai yang cocok. Coba kata kunci lain.</p>';
+}
+$("#q").addEventListener("input",drawEssays);
+$("#chips").addEventListener("click",function(ev){var b=ev.target.closest("button");if(!b)return;cat=b.dataset.c;
+ document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===b)});drawEssays()});
+drawEssays();
+$("#videos").innerHTML=VIDEOS.map(function(v,i){return '<a class="card" href="'+esc(v.u)+'"><div class="thumb">'+pic(v.foto,v.t,i+2)+'</div><div class="body"><span class="tag">'+esc(v.k)+'</span><h3>'+esc(v.t)+'</h3><p>'+esc(v.x)+'</p></div></a>'}).join("");
+$("#art").innerHTML=ART.map(function(a,i){return '<div class="card"><div class="thumb sq">'+pic(a.foto,a.t,i+4)+'</div><div class="body"><h3>'+esc(a.t)+'</h3><div class="meta">'+esc(a.m)+', '+esc(a.y)+'</div><p>'+esc(a.x)+'</p></div></div>'}).join("");
+$("#cover").innerHTML=pic(COVER,"Sampul Spaco",0);
+$("#portrait").innerHTML=pic(PORTRAIT,"Foto penulis Spaco",1)+'<figcaption>Penulis Spaco</figcaption>';
+document.querySelectorAll("[data-social]").forEach(function(a){a.href=SOCIAL[a.dataset.social];a.target="_blank";a.rel="noopener"});
+$("#f").addEventListener("submit",function(ev){ev.preventDefault();var f=ev.target;
+ location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Pesan dari "+f.n.value)+"&body="+encodeURIComponent(f.m.value)});
+var names=["beranda","esai","video","seni","tentang","kontak"];
+function route(){
+ var h=location.hash.slice(1);if(names.indexOf(h)<0)h="beranda";
+ names.forEach(function(n){$("#v-"+n).classList.toggle("on",n===h)});
+ document.querySelectorAll("#nav a").forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+ window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);route();
+</script>
 </body>
 </html>
