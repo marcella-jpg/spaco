@@ -37,17 +37,48 @@
   <main>
 
     <!-- 1. HOME VIEW -->
-    <section id="page-home" class="page-view active-view">
-      <section class="hero">
-        <span class="eyebrow">Philosophy · Essays · Visual Art</span>
-        <h1 id="hero-title">Spatium Cogitationis</h1>
-        <p class="tagline">A space of thought.</p>
-        <p class="intro" id="hero-intro"></p>
-        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <a href="#essays" class="button">Explore Works →</a>
-          <a href="#about" class="button button-secondary">About Spaco</a>
-        </div>
-      </section>
+    <!-- 1. HOME VIEW (DENGAN HERO PHOTO BACKDROP) -->
+<section id="page-home" class="page-view active-view">
+  
+  <section class="hero-photo-banner">
+    <div class="hero-content">
+      <span class="eyebrow">Philosophy · Essays · Visual Art</span>
+      <h1 id="hero-title">Spatium Cogitationis</h1>
+      <p class="tagline">A space of thought.</p>
+      <p class="intro" id="hero-intro"></p>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="#essays" class="button">Explore Works →</a>
+        <a href="#about" class="button button-secondary">About Spaco</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCRATIC QUESTION WIDGET -->
+  <div class="socratic-card">
+    <div class="socratic-header">
+      <span class="eyebrow" id="prompt-topic" style="margin: 0;">Epistemology</span>
+      <span style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Socratic Prompt</span>
+    </div>
+    <div class="socratic-prompt" id="prompt-content"></div>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <button onclick="rotatePrompt()" class="button button-secondary" style="padding: 8px 16px; font-size: 0.85rem; color:var(--text-main);">Next ↻</button>
+      <button onclick="reflectOnPrompt()" class="button" style="padding: 8px 16px; font-size: 0.85rem;">Reflect →</button>
+    </div>
+  </div>
+
+  <!-- EDITORIAL GRID -->
+  <section>
+    <div class="section-title">
+      <span>Featured & Recent Works</span>
+      <span style="font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">VOL. 01</span>
+    </div>
+    <div class="editorial-grid">
+      <article class="card-featured" id="featured-essay-card"></article>
+      <div class="stacked-entries" id="home-stacked-entries"></div>
+    </div>
+  </section>
+
+</section>
 
       <!-- SOCRATIC QUESTION WIDGET -->
       <div class="socratic-card">
