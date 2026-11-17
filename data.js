@@ -14,8 +14,8 @@ var SOCIAL = {
 
 var NOTICE = "Arsip esai, video, dan lukisan Spaco kini terbuka untuk dibaca.";
 
-var COVER = "img/tate1.jpg";     // foto besar di bagian atas Beranda
-var PORTRAIT = "img/tate2.jpg";  // foto di halaman Tentang dan kutipan
+var COVER = "tate1.jpeg";     // foto besar di bagian atas Beranda
+var PORTRAIT = "tate2.jpeg";  // foto di halaman Tentang dan kutipan
 
 // Kartu sorotan di atas foto Beranda
 var HEADLINE = {
@@ -40,11 +40,11 @@ var QUOTE = {
 // d = tanggal (TTTT-BB-HH), c = kategori, u = tautan ke esai lengkap
 var ESSAYS = [
   { t: "Contoh judul esai pertama",  d: "2026-10-12", c: "Etika",
-    x: "Ringkasan satu atau dua kalimat tentang argumen utama esai ini.", u: "#", foto: "img/tate3.jpg" },
+    x: "Ringkasan satu atau dua kalimat tentang argumen utama esai ini.", u: "#", foto: "tate3.jpeg" },
   { t: "Contoh judul esai kedua",    d: "2026-09-03", c: "Eksistensialisme",
-    x: "Ringkasan singkat yang membantu pembaca memutuskan untuk membaca.", u: "#", foto: "img/tate4.jpg" },
+    x: "Ringkasan singkat yang membantu pembaca memutuskan untuk membaca.", u: "#", foto: "4.jpg" },
   { t: "Contoh judul esai ketiga",   d: "2026-07-21", c: "Filsafat sehari-hari",
-    x: "Ganti teks ini dengan ringkasan esai Anda.", u: "#", foto: "img/tate5.jpg" }
+    x: "Ganti teks ini dengan ringkasan esai Anda.", u: "#", foto: "5.jpg" }
 ];
 
 // k = jenis (Video panjang, Reels, TikTok), u = tautan ke videonya
@@ -56,7 +56,7 @@ var VIDEOS = [
 
 // m = media, y = tahun
 var ART = [
-  { t: "Judul lukisan",        y: "2026", m: "Cat minyak di kanvas", x: "Catatan singkat tentang gagasan lukisan.", foto: "img/tate6.jpg" },
+  { t: "Judul lukisan",        y: "2026", m: "Cat minyak di kanvas", x: "Catatan singkat tentang gagasan lukisan.", foto: "6.jpg" },
   { t: "Judul lukisan kedua",  y: "2026", m: "Akrilik di kanvas",    x: "Catatan singkat tentang gagasan lukisan.", foto: "" },
   { t: "Judul lukisan ketiga", y: "2025", m: "Cat air di kertas",    x: "Catatan singkat tentang gagasan lukisan.", foto: "" }
 ];
