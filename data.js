@@ -39,7 +39,7 @@ var QUOTE = {
 
 // d = tanggal (TTTT-BB-HH), c = kategori, u = tautan ke esai lengkap
 var ESSAYS = [
-  { t: "Kasus Bunuh Diri pada Pria dan Narasi "Pria Tidak Bercerita"",  d: "2026-10-12", c: "Eksistensialisme",
+  { t: "Kasus Bunuh Diri pada Pria dan Narasi “Pria Tidak Bercerita”",  d: "2026-10-12", c: "Eksistensialisme",
     x: "Apakah narasi pria bercerita mempengaruhi kerentanan pria atau mencerminkan keadaan yang ada?", u: "#", foto: "tate3.jpeg" },
   { t: "Kesetiaan pada Pasangan Poliamori",    d: "2026-09-03", c: "Etika",
     x: "Apa itu kesetiaan?", u: "#", foto: "4.jpg" },
