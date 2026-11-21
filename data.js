@@ -1,7 +1,5 @@
 /* =====================================================
    data.js – semua konten Spaco ada di sini.
-   Foto: simpan di folder "img", tulis jalurnya di bawah.
-   Kosongkan ("") untuk memakai gambar pengganti.
    ===================================================== */
 
 var EMAIL = "marcellarxiv@gmail.com";
@@ -43,7 +41,7 @@ var ESSAYS = [
     x: "Apakah narasi pria bercerita mempengaruhi kerentanan pria atau mencerminkan keadaan yang ada?", u: "#", foto: "tate3.jpeg" },
   { t: "Kesetiaan pada Pasangan Poliamori",    d: "2026-09-03", c: "Etika",
     x: "Apa itu kesetiaan?", u: "#", foto: "4.jpg" },
-  { t: "Kerasukan, Tubuh, dan Makna Sosial: Tinjauan Antropoligs atas Film Para Perasuk",   d: "2026-07-21", c: "Antropologi Budaya",
+  { t: "Kerasukan, Tubuh, dan Makna Sosial: Tinjauan Antropologis atas Film Para Perasuk",   d: "2026-07-21", c: "Antropologi Budaya",
     x: "Bagaimana fenomena kerasukan dapat dijelaskan?", u: "#", foto: "5.jpg" }
 ];
 
