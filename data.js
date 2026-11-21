@@ -4,15 +4,15 @@
    Kosongkan ("") untuk memakai gambar pengganti.
    ===================================================== */
 
-var EMAIL = "emailanda@contoh.com";
+var EMAIL = "marcellarxiv@gmail.com";
 
 var SOCIAL = {
-  youtube:   "https://www.youtube.com/@spaco",
-  instagram: "https://www.instagram.com/spaco",
-  tiktok:    "https://www.tiktok.com/@spaco"
+  youtube:   "https://www.youtube.com/@MarcellarXiv",
+  instagram: "https://www.instagram.com/spatiumcogitationis",
+  tiktok:    "https://www.tiktok.com/@spatiumcogitationis"
 };
 
-var NOTICE = "Arsip esai, video, dan lukisan Spaco kini terbuka untuk dibaca.";
+var NOTICE = "Temukan esai, video, dan karya lainnya dalam arsip personal seseorang yang mudah menyerah.";
 
 var COVER = "tate1.jpeg";     // foto besar di bagian atas Beranda
 var PORTRAIT = "tate2.jpeg";  // foto di halaman Tentang dan kutipan
@@ -21,42 +21,42 @@ var PORTRAIT = "tate2.jpeg";  // foto di halaman Tentang dan kutipan
 var HEADLINE = {
   eyebrow: "Sorotan",
   title: "Ruang untuk berpikir bersama.",
-  text: "Spaco mengarsipkan esai, video, dan lukisan dari perjalanan belajar filsafat, supaya siapa pun bisa membaca, menonton, dan ikut menimbang.",
+  text: "Spaco mengarsipkan esai, video, dan lukisan dari perjalanan seorang pelajar filsafat amatir.",
   link: "#esai", label: "Baca esai"
 };
 
 // Garis waktu di Beranda (y = tahun atau label, x = keterangan)
 var TIMELINE = [
-  { y: "2024", x: "Mulai menulis esai filsafat secara rutin." },
-  { y: "2025", x: "Merilis video essay pertama dan mulai melukis." },
-  { y: "2026", x: "Spaco hadir sebagai arsip daring terbuka." }
+  { y: "2020-2025", x: "Mulai gila." },
+  { y: "2026", x: "Masuk Filsafat." },
+  { y: "2027", x: "Masuk Akal." }
 ];
 
 var QUOTE = {
-  x: "“Berfilsafat dimulai dari keberanian untuk bertanya ulang.”",
-  by: "Nama Anda", role: "Pendiri Spaco"
+  x: "“Dulu aku berpikir filsafat itu keren dan terdengar pintar.”",
+  by: "Marcella", role: "Pendiri Spaco"
 };
 
 // d = tanggal (TTTT-BB-HH), c = kategori, u = tautan ke esai lengkap
 var ESSAYS = [
-  { t: "Contoh judul esai pertama",  d: "2026-10-12", c: "Etika",
-    x: "Ringkasan satu atau dua kalimat tentang argumen utama esai ini.", u: "#", foto: "tate3.jpeg" },
-  { t: "Contoh judul esai kedua",    d: "2026-09-03", c: "Eksistensialisme",
-    x: "Ringkasan singkat yang membantu pembaca memutuskan untuk membaca.", u: "#", foto: "4.jpg" },
-  { t: "Contoh judul esai ketiga",   d: "2026-07-21", c: "Filsafat sehari-hari",
-    x: "Ganti teks ini dengan ringkasan esai Anda.", u: "#", foto: "5.jpg" }
+  { t: "Kasus Bunuh Diri pada Pria dan Narasi "Pria Tidak Bercerita"",  d: "2026-10-12", c: "Eksistensialisme",
+    x: "Apakah narasi pria bercerita mempengaruhi kerentanan pria atau mencerminkan keadaan yang ada?", u: "#", foto: "tate3.jpeg" },
+  { t: "Kesetiaan pada Pasangan Poliamori",    d: "2026-09-03", c: "Etika",
+    x: "Apa itu kesetiaan?", u: "#", foto: "4.jpg" },
+  { t: "Kerasukan, Tubuh, dan Makna Sosial: Tinjauan Antropoligs atas Film Para Perasuk",   d: "2026-07-21", c: "Antropologi Budaya",
+    x: "Bagaimana fenomena kerasukan dapat dijelaskan?", u: "#", foto: "5.jpg" }
 ];
 
 // k = jenis (Video panjang, Reels, TikTok), u = tautan ke videonya
 var VIDEOS = [
-  { t: "Contoh video essay",       k: "Video panjang", x: "Deskripsi singkat video.", u: "#", foto: "" },
-  { t: "Contoh klip pendek",       k: "Reels",         x: "Deskripsi singkat klip.",  u: "#", foto: "" },
-  { t: "Contoh klip pendek kedua", k: "TikTok",        x: "Deskripsi singkat klip.",  u: "#", foto: "" }
+  { t: "Isu Eko-Sosial dan Sistem Demokrasi di Indonesia",       k: "Video panjang", x: "Menjelaskan permasalahan terkini Indonesia dan kaitannya dengan sistem Demokrasi-Pancasila.", u: "#", foto: "" },
+  { t: "Mengapa Kita Mengkonsumsi Urusan Pribadi Selebriti?",       k: "Reels",         x: "Pentingnya menyaring informasi.",  u: "#", foto: "" },
+  { t: "Apa itu Kesadaran pada Penderita Skizofrenia?", k: "TikTok",        x: "Mengapa terdapat pengalaman subjektif?",  u: "#", foto: "" }
 ];
 
 // m = media, y = tahun
 var ART = [
-  { t: "Judul lukisan",        y: "2026", m: "Cat minyak di kanvas", x: "Catatan singkat tentang gagasan lukisan.", foto: "6.jpg" },
-  { t: "Judul lukisan kedua",  y: "2026", m: "Akrilik di kanvas",    x: "Catatan singkat tentang gagasan lukisan.", foto: "" },
-  { t: "Judul lukisan ketiga", y: "2025", m: "Cat air di kertas",    x: "Catatan singkat tentang gagasan lukisan.", foto: "" }
+  { t: "Puan Satu",  y: "2026", m: "Cat akrilik di kanvas", x: "Potret figur wanita yang menunjukkan kerentanan.", foto: "6.jpg" },
+  { t: "Puan Dua",  y: "2026", m: "Cat akrilik di kanvas",    x: "Siluet feminim yang mengimplikasikan dualitas seorang wanita.", foto: "" },
+  { t: "Puan Saja", y: "2025", m: "Cat air di kertas",    x: "Puan.", foto: "" }
 ];
